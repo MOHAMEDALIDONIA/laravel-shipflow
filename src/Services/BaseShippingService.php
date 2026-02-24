@@ -145,6 +145,7 @@ abstract class BaseShippingService implements ShippingService
         }
     }
 
+    
     /**
      * Reset the service state after each call to prevent data leakage.
      */
