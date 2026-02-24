@@ -66,7 +66,7 @@ class MakeShippingDriver extends Command
         $payloadStub = File::get(__DIR__ . '/../stubs/payload.stub');
         $payloadContent = str_replace(
             ['{{ namespace }}', '{{ class }}', '{{ name }}'],
-            ['App\\Payloads', $payloadClassName, $snakeName],
+            ['App\\Shipping\\Payloads', $payloadClassName, $snakeName],
             $payloadStub
         );
         File::put($payloadPath, $payloadContent);
