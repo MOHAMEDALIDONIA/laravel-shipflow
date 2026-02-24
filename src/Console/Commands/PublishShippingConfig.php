@@ -14,6 +14,7 @@ class PublishShippingConfig extends Command
      */
     protected $signature = 'shipping:publish-config {--force : Overwrite existing config file}';
 
+    
     /**
      * The console command description.
      *
