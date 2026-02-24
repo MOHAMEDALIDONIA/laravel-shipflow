@@ -34,12 +34,12 @@ return [
         ],
         'sally' => [
             'driver' => \Mohamedali\LaravelShipping\Services\Drivers\SallyDriver::class,
-            'base_url' => env('SALLY_BASE_URL'),
+            'base_url' => env('SALLY_BASE_URL',"https://sally-express.com/api"),
             'partner_code' => env('SALLY_PARTNER_CODE'),
         ],
         'smsa' => [
             'driver' => \Mohamedali\LaravelShipping\Services\Drivers\SmsaDriver::class,
-            'base_url' => env('SMSA_BASE_URL'),
+            'base_url' => env('SMSA_BASE_URL',"https://ecomapis.smsaexpress.com/api"),
             'api_key' => env('SMSA_API_KEY'),
         ],
     ],
