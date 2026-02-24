@@ -13,7 +13,8 @@
         "illuminate/support": "^10.0|^11.0",
         "illuminate/database": "^10.0|^11.0",
         "illuminate/console": "^10.0|^11.0",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "another-vendor/package": "1.*"
     },
     "require-dev": {
         "orchestra/testbench": "^8.0|^9.0",
