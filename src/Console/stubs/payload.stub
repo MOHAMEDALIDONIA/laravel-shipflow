@@ -1,0 +1,44 @@
+<?php
+
+namespace {{ namespace }};
+
+use Mohamedali\LaravelShipping\Payloads\BasePayload;
+
+class {{ class }} extends BasePayload
+{
+    public function driverName(): string
+    {
+        return '{{ name }}';
+    }
+
+    /**
+     * Define the validation rules for this payload.
+     * Add your payload keys and their validation rules here.
+     *
+     * @see https://laravel.com/docs/validation#available-validation-rules
+     */
+    public function rules(): array
+    {
+        return [
+            // Example:
+            // 'reference'       => 'required|string',
+            // 'customer_name'   => 'required|string|max:255',
+            // 'customer_phone'  => 'required|string',
+            // 'customer_address'=> 'required|string',
+            // 'weight'          => 'nullable|numeric|min:0',
+        ];
+    }
+
+    /**
+     * Define default values for optional fields.
+     * These will be used if the field is not provided in the payload.
+     */
+    public function defaults(): array
+    {
+        return [
+            // Example:
+            // 'weight' => 1.0,
+            // 'currency' => 'SAR',
+        ];
+    }
+}

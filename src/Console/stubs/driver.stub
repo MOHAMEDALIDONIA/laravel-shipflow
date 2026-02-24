@@ -1,0 +1,55 @@
+<?php
+
+namespace {{ namespace }};
+
+use Mohamedali\LaravelShipping\Services\BaseShippingService;
+use Mohamedali\LaravelShipping\Exceptions\RequestFailedException;
+use Mohamedali\LaravelShipping\Payloads\{{ payloadClass }};
+use Mohamedali\LaravelShipping\Data\ShipmentResponse;
+use Illuminate\Support\Facades\Http;
+
+class {{ class }} extends BaseShippingService
+{
+    // protected $baseUrl;
+
+    public function __construct()
+    {
+        // $this->baseUrl = config('shipping.providers.{{ name }}.base_url');
+    }
+
+    protected function getProviderName(): string
+    {
+        return '{{ name }}';
+    }
+
+    protected function getPayloadClass(): string
+    {
+        return {{ payloadClass }}::class;
+    }
+
+    protected function preparePayload(array $data): array
+    {
+        // The payload is already validated by {{ payloadClass }}
+        // Add any API-specific transformations here if needed
+        return $data;
+    }
+
+    protected function sendRequest(array $payload): ShipmentResponse
+    {
+        // TODO: Implement your API request here
+        // Example:
+        // $response = Http::post($this->baseUrl . '/endpoint', $payload);
+        //
+        // if (!$response->successful()) {
+        //     throw new RequestFailedException("{{ class }} Request Failed: " . $response->body());
+        // }
+        //
+        // $result = $response->json();
+
+        return ShipmentResponse::make(
+            trackingNumber: 'TEST-123',
+            labelUrl: 'https://example.com/label',
+            rawResponse: []
+        );
+    }
+}
