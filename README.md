@@ -12,11 +12,16 @@ The goal of this package is to provide a standardized way to handle shipping ope
 
 ## 📦 Installation
 
-1. Add the package to your `composer.json` or install via composer.
-2. Register the service provider:
+1. Install the package via composer:
+   ```bash
+   composer require mohamedali/laravel-shipping:dev-main
+   ```
+
+2. Register the service provider (if not using auto-discovery):
    ```php
    Mohamedali\LaravelShipping\ShippingServiceProvider::class
    ```
+
 3. Publish the configuration and migrations:
    ```bash
    php artisan shipping:publish-config
@@ -53,16 +58,16 @@ An interactive command to generate a payload class pre-filled with example data 
 ## 📖 Usage Guide
 
 ### 1. Basic Shipment
-Resolve the shipping manager and choose your driver:
+Resolve the shipping manager and choose your driver. We recommend using a Payload class to structure your data:
 
 ```php
 use Mohamedali\LaravelShipping\Services\ShippingManager;
+use App\Shipping\Payloads\AramexOrderPayload;
 
 $shipping = app(ShippingManager::class)->driver('aramex');
 
-$payload = [
-    // API specific data
-];
+// Prepare payload data using the static data method
+$payload = AramexOrderPayload::data($order);
 
 $success = $shipping->processShipment($payload);
 ```

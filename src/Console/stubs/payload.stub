@@ -12,6 +12,19 @@ class {{ class }} extends BasePayload
     }
 
     /**
+     * Prepare the payload data from a model.
+     * This is the recommended way to structure your shipping data.
+     */
+    public static function data($model): array
+    {
+        return [
+            // 'Reference1' => 'Shipment-' . $model->id,
+            // 'Shipper'    => [...],
+            // 'Consignee'  => [...],
+        ];
+    }
+
+    /**
      * Define the validation rules for this payload.
      * Add your payload keys and their validation rules here.
      *
